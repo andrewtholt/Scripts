@@ -1,12 +1,9 @@
 #!/usr/bin/ruby
 
-def main
+def updateDirs(rd)
 
     ok = "nothing to commit, working directory clean\n"
 
-    home = ENV["HOME"]
-
-    rd = home + "/Source"
 
     if File.exists?( rd ) then
 
@@ -33,6 +30,21 @@ def main
             end
         end
     end
+end
+
+def main
+    home = ENV["HOME"]
+
+    if ARGV.length == 0
+        folder = home + "/Source"
+    else
+        folder = ARGV[0]
+    end
+
+    puts folder
+
+    updateDirs(folder)
+
 end
 
 main
