@@ -1,35 +1,35 @@
 #!/usr/bin/ruby
 
 def updateDirs(rd)
-
     ok = "nothing to commit, working directory clean\n"
 
-
     if File.exists?( rd ) then
-
         Dir.entries( rd ).each do | d | 
         if not (d == "." or d == "..") then
-                t = rd + "/" + d
-                puts t
-                Dir.chdir( t )
+            t = rd + "/" + d
+            puts t
 
-                if File.exists?( ".git" ) then
-                    puts ".git exists"
+            if File.directory?(t)
+            Dir.chdir( t )
 
-                    f = IO.popen( "git pull") 
-                    data = f.readlines
-                    puts data[1]
+            if File.exists?( ".git" ) then
+                puts ".git exists"
 
-                    if data[1] == ok then
-                        puts "Nothing to do."
-                    end
-                else
-                    puts "No .git exists"
+                f = IO.popen( "git pull") 
+                data = f.readlines
+                puts data[1]
+
+                if data[1] == ok then
+                    puts "Nothing to do."
                 end
-                puts "========="
+            else
+                puts "No .git exists"
+            end
+            puts "========="
             end
         end
     end
+end
 end
 
 def main
