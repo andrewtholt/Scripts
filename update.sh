@@ -1,11 +1,17 @@
 #!/bin/sh
 
-set -x
+# set -x
 
 
 SRC=$HOME/Source
 
-GITS=`find $SRC -name .git`
+HERE=`pwd`
+cd $SRC
+
+GITS=`find . -name .git`
+# GITS=`find $SRC -name .git`
+
+cd $HERE
 
 echo "Update from GIT"
 for PLACE in $GITS; do
@@ -17,7 +23,11 @@ for PLACE in $GITS; do
 done
 echo "================================"
 
-SVNS=`find $SRC -name .svn`
+HERE=`pwd`
+cd $SRC
+SVNS=`find . -name .svn`
+cd $HERE
+
 echo "Update from SVN"
 
 for PLACE in $SVNS; do
