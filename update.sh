@@ -2,7 +2,9 @@
 
 set -x
 
-RC=$HOME/Source
+
+SRC=$HOME/Source
+
 GITS=`find $SRC -name .git`
 
 echo "Update from GIT"
