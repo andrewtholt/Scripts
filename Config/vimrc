@@ -1,0 +1,24 @@
+syntax enable
+
+syntax on
+filetype on
+
+au BufNewFile,BufRead *.fth set filetype=forth
+au BufNewFile,BufRead *.4th set filetype=forth
+au BufNewFile,BufRead *.fb set filetype=forth
+au BufNewFile,BufRead *.ctl set filetype=forth
+au BufNewFile,BufRead *.go set filetype=go
+au BufNewFile,BufRead *.ino set filetype=c
+
+
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set number
+
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
+set laststatus=2
+
+
+filetype plugin indent on
