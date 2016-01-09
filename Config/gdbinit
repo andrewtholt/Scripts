@@ -1,0 +1,7 @@
+set history save
+set output-radix 16
+
+define hook-quit
+    set confirm off
+end
+
