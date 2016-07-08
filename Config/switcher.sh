@@ -5,6 +5,8 @@ if [ $# -eq 0 ]; then
     echo
     update-alternatives --query gcc | grep Alter |cut -f2 -d":"
     echo
+    echo "Selected version is:"
+    gcc --version | grep "^gcc"
     exit 0
 fi
 
