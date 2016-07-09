@@ -1,7 +1,11 @@
 #!/bin/sh
 
 if [ $# -eq 0 ]; then
-    echo "No args"
+    echo 
+    echo "Enter version number to add, already known are:"
+    echo
+    update-alternatives --query gcc | grep Alter |cut -f2 -d":"
+    echo
     exit 0
 fi
 
